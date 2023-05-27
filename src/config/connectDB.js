@@ -1,9 +1,9 @@
 const { Sequelize } = require('sequelize');
 
 // Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize('tmdientu', 'root', null, {
-    host: 'localhost',
-    dialect: 'mysql',
+const sequelize = new Sequelize('postgres', 'postgres', 'rXt1DeBXH7Py3y3T', {
+    host: 'db.zgskgucytboiquriwvad.supabase.co',
+    dialect: 'postgres',
 });
 
 let connectDB = async () => {
