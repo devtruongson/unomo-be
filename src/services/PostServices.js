@@ -42,7 +42,7 @@ class PostServices {
                     contentTEXT: data.contentTEXT,
                     time: data.time,
                     deleted: null,
-                    isPublic: 1,
+                    isPublic: '1',
                     countLike: 0,
                     countCMT: 0,
                 });
@@ -172,7 +172,7 @@ class PostServices {
                 const post = await db.Post.findOne({
                     where: {
                         id,
-                        isPublic: 1,
+                        isPublic: '1',
                     },
                 });
 
@@ -234,7 +234,7 @@ class PostServices {
                 const data = await db.Post.findAll(
                     {
                         where: {
-                            isPublic: 1,
+                            isPublic: '1',
                         },
                     },
                     {
@@ -270,7 +270,7 @@ class PostServices {
                     limit: +limit,
                     where: {
                         id: {
-                            [Op.ne]: id,
+                            [Op.ne]: +id,
                         },
                     },
                 });
@@ -323,6 +323,8 @@ class PostServices {
                     attributes: {
                         exclude: ['thumbnail', 'countCMT', 'contentHTML', 'contentTEXT', 'createdAt', 'updatedAt'],
                     },
+                    raw: true,
+                    nest: true,
                 });
 
                 if (post && post.length === 0) {
@@ -399,6 +401,8 @@ class PostServices {
                     attributes: {
                         exclude: ['thumbnail', 'countCMT', 'contentHTML', 'contentTEXT', 'createdAt', 'updatedAt'],
                     },
+                    raw: true,
+                    nest: true,
                 });
 
                 resolve({

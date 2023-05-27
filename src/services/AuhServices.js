@@ -225,11 +225,11 @@ class AuhServices {
     }
 
     async generateToken(user) {
-        const accessToken = await jwt.sign(user, process.env.SECRET_KEY_JWT_ACCESS_TOKEN, {
+        const accessToken = jwt.sign(user, process.env.SECRET_KEY_JWT_ACCESS_TOKEN, {
             expiresIn: '1d',
         });
 
-        const refreshToken = await jwt.sign(user, process.env.SECRET_KEY_JWT_REFRESH_TOKEN, { expiresIn: '365d' });
+        const refreshToken = jwt.sign(user, process.env.SECRET_KEY_JWT_REFRESH_TOKEN, { expiresIn: '365d' });
 
         return {
             accessToken,

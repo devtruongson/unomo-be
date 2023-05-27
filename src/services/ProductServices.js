@@ -100,7 +100,7 @@ class ProductServices {
         });
     }
 
-    async GetProductByType(type) {
+    async GetProductByType(type = 'C1') {
         return new Promise(async (resolve, reject) => {
             try {
                 if (!type) {
@@ -124,6 +124,8 @@ class ProductServices {
                             as: 'categoryData',
                         },
                     ],
+                    raw: true,
+                    nest: true,
                 });
 
                 resolve({
@@ -148,7 +150,7 @@ class ProductServices {
                 }
 
                 const data = await db.Product.findAll({
-                    order: [[Sequelize.literal('RAND()')]],
+                    order: [[Sequelize.literal('RANDOM()')]],
                     limit: +limit || 5,
                     attributes: {
                         exclude: ['contentHTML', 'contentTEXT', 'deleted'],
@@ -162,6 +164,8 @@ class ProductServices {
                             as: 'categoryData',
                         },
                     ],
+                    raw: true,
+                    nest: true,
                 });
 
                 resolve({
@@ -246,6 +250,8 @@ class ProductServices {
                     attributes: {
                         exclude: ['deleted'],
                     },
+                    raw: true,
+                    nest: true,
                 });
 
                 if (!data) {
@@ -310,6 +316,8 @@ class ProductServices {
                     attributes: {
                         exclude: ['deleted', 'contentHTML', 'thumbnail', 'contentTEXT'],
                     },
+                    raw: true,
+                    nest: true,
                 });
 
                 if (!data) {
@@ -477,6 +485,8 @@ class ProductServices {
                     attributes: {
                         exclude: ['deleted'],
                     },
+                    raw: true,
+                    nest: true,
                 });
 
                 if (!data) {
@@ -566,6 +576,8 @@ class ProductServices {
                             as: 'categoryData',
                         },
                     ],
+                    raw: true,
+                    nest: true,
                 });
 
                 resolve({

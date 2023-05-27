@@ -3,7 +3,14 @@ const { Sequelize } = require('sequelize');
 // Option 3: Passing parameters separately (other dialects)
 const sequelize = new Sequelize('postgres', 'postgres', 'rXt1DeBXH7Py3y3T', {
     host: 'db.zgskgucytboiquriwvad.supabase.co',
+    port: 5432,
     dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            required: true,
+            rejectUnauthorized: false,
+        },
+    },
 });
 
 let connectDB = async () => {
