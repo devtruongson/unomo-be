@@ -19,17 +19,41 @@
         }
     },
     "test": {
-        "username": "root",
-        "password": null,
-        "database": "database_test",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
+       "username": "postgres",
+        "port": 5432,
+        "password": "rXt1DeBXH7Py3y3T",
+        "database": "postgres",
+        "host": "db.zgskgucytboiquriwvad.supabase.co",
+        "dialect": "postgres",
+        "logging": false,
+        "query": {
+            "raw": true
+        },
+        "timezone": "+07:00",
+        "dialectOptions": {
+            "ssl": {
+                "required": true,
+                "rejectUnauthorized": false
+            }
+        }
     },
     "production": {
-        "username": "root",
-        "password": null,
-        "database": "database_production",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
+         "username": "postgres",
+        "port": 5432,
+        "password": "rXt1DeBXH7Py3y3T",
+        "database": "postgres",
+        "host": "db.zgskgucytboiquriwvad.supabase.co",
+        "dialect": "postgres",
+        "logging": false,
+        "query": {
+            "raw": true
+        },
+        "timezone": "+07:00",
+        "dialectOptions": {
+            "ssl": {
+                "required": true,
+                "rejectUnauthorized": false
+            }
+        }
     }
 }
